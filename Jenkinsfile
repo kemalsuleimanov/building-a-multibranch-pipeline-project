@@ -1,8 +1,9 @@
 pipeline {
-    agent any
-        tools {
-            nodejs 'node18' // matches name from Jenkins config
+    agent {
+        docker {
+            image 'node:22'
         }
+    }
     environment {
         CI = 'true'
     }
