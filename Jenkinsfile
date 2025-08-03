@@ -1,12 +1,16 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:22'
+        }
+    }
     environment {
         CI = 'true'
     }
     stages {
         stage('Build') {
             steps {
-                sh '/usr/bin/npm install'
+                sh 'npm install'
             }
         }
         stage('Test') {
